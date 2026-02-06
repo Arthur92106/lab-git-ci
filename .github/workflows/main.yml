@@ -1,30 +1,9 @@
-# Nom de ton pipeline
-name: CI
+name: MonPremierPipeline
+on: [push] # Se lance à chaque fois que tu fais un push
 
-# Déclencheurs (triggers) : quand le pipeline s'exécute
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-# Liste des jobs à exécuter
 jobs:
-  build:
-    # L'ordinateur qui va faire le travail (ici un Linux)
+  test:
     runs-on: ubuntu-latest
-
-    # Les étapes (steps) à automatiser
     steps:
-      # 1. Récupérer le code de ton dépôt
-      - uses: actions/checkout@v4
-
-      # 2. Une commande simple pour tester
-      - name: Run a one-line script
-        run: echo "Hello, GitHub Actions!"
-
-      # 3. Une commande multi-lignes
-      - name: Run a multi-line script
-        run: |
-          echo "Le pipeline s'exécute..."
-          echo "Test de construction réussi."
+      - uses: actions/checkout@v4 # Le robot récupère ton code
+      - run: echo "Bravo, le pipeline fonctionne !" # Le robot affiche un message
